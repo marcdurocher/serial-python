@@ -1,14 +1,17 @@
 import dill
 
 
-def serialize():
+def serialize(fn):
     """
-    Serialise la fonction est Pair
+    Serialise la fonction <fn> passee en parametre
+    :param fn: fonction a serialiser
     :return: neant
     """
 
-    file = open("../mafonctionSerialisee.bin", "wb")
-    dill.dump(estpair, file)
+    fn_name = fn.__name__
+    filename = "../%s.bin" % (fn_name,)
+    file = open(filename, "wb")
+    dill.dump(fn, file)
     file.close()
 
 
@@ -24,4 +27,4 @@ def estpair(n):
 for i in range(10):
     print("%d est pair ? %s" % (i, estpair(i)))
 
-serialize()
+serialize(estpair)

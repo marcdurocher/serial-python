@@ -3,8 +3,8 @@ import dill
 #
 # Importation de la fonction a partir du fichier "binaire"
 #
-file = open("../mafonctionSerialisee.bin", "rb")
-estPair = dill.load(file)
+file = open("../estpair.bin", "rb")
+estpair = dill.load(file)
 file.close()
 
 #
@@ -12,4 +12,4 @@ file.close()
 #
 
 for i in range(10):
-    print("%d est pair ? %s" % (i, estPair(i)))
+    print("%d est pair ? %s" % (i, estpair(i)))
