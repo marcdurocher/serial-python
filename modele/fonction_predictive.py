@@ -10,9 +10,8 @@ def serialize(fn):
 
     fn_name = fn.__name__
     filename = "../%s.bin" % (fn_name,)
-    file = open(filename, "wb")
-    dill.dump(fn, file)
-    file.close()
+    with open(filename, "wb") as file:
+        dill.dump(fn, file)
 
 
 def estpair(n):

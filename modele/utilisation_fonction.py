@@ -3,9 +3,8 @@ import dill
 #
 # Importation de la fonction a partir du fichier "binaire"
 #
-file = open("../estpair.bin", "rb")
-estpair = dill.load(file)
-file.close()
+with open("../estpair.bin", "rb") as file:
+    estpair = dill.load(file)
 
 #
 # Invocation de la fonction récupérer
