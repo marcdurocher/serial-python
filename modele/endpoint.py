@@ -1,3 +1,6 @@
+"""
+HTTP endpoint
+"""
 import dill
 import getopt
 import sys

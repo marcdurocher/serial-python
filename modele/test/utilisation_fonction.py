@@ -1,3 +1,6 @@
+"""
+Simple test
+"""
 import dill
 
 #

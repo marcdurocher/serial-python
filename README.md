@@ -29,3 +29,18 @@ Result
 Function __estpair__
 > def estpair(n):  return n % 2 == 0
  
+ 
+ ** Docker image
+ 
+ To build the Docker image
+ 
+ > docker build -t marc.durocher/serial-python .
+ 
+ To run a container from this image
+ 
+ > docker run --rm --net=host -it marc.durocher/serial-python
+ 
+ 
+ Enjoy...
+ 
+ CU

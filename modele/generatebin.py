@@ -1,15 +1,18 @@
+"""
+generate bin function
+"""
 import dill
+import sys
 
 
-def serialize(fn):
+def serialize(fn, filename):
     """
     Serialise la fonction <fn> passee en parametre
+    :param filename: nom du fichier a produire
     :param fn: fonction a serialiser
     :return: neant
     """
 
-    fn_name = fn.__name__
-    filename = "../%s.bin" % (fn_name,)
     with open(filename, "wb") as file:
         dill.dump(fn, file)
 
@@ -23,7 +26,12 @@ def estpair(n):
     return n % 2 == 0
 
 
-for i in range(10):
-    print("%d est pair ? %s" % (i, estpair(i)))
+def main():
+    filename = './function.bin'
+    if len(sys.argv) == 2:
+        filename =sys.argv[1]
+    serialize(estpair, filename)
 
-serialize(estpair)
+
+if __name__ == "__main__":
+    main()
