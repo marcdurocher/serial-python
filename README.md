@@ -40,6 +40,8 @@ Function __estpair__
  
  > docker run --rm --net=host -it marc.durocher/serial-python
  
+ Using the host network (form docker container point of view) you can call the service the same way as previously
+ > wget -qO - http://localhost:8080/api/13
  
  _Enjoy..._
  
