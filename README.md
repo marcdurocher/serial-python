@@ -1,6 +1,6 @@
 # serial-python
 
-##Experiments around Python functions serialization.
+## Experiments around Python functions serialization.
 
 
 __Endpoint.py__ exposes a function as "REST RPC" service.
@@ -12,7 +12,7 @@ The goal is to decouple the creation of the function and its consumation as a "R
 
 This function could be a trained model seralized form a machine learning framework.  
 
-##Example
+## Example
 
 Service launch
 > python -m modele.endpoint --file estpair.bin
@@ -30,7 +30,7 @@ Function __estpair__
 > def estpair(n):  return n % 2 == 0
  
  
- ** Docker image
+ ## Docker image
  
  To build the Docker image
  
@@ -41,6 +41,6 @@ Function __estpair__
  > docker run --rm --net=host -it marc.durocher/serial-python
  
  
- Enjoy...
+ _Enjoy..._
  
- CU
+ _CU_
