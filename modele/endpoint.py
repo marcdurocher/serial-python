@@ -1,5 +1,8 @@
 """
-HTTP endpoint
+HTTP endpoint wrapping desrialized function
+
+__author__ = Marc Durocher
+
 """
 import dill
 import getopt
@@ -15,7 +18,7 @@ def estpair(number):
     :param number: parametre de type entier attendu. Controle et transforme par le framework bottle
     :return: retourne un dictionnaire qui est transforme en reponse HTTP de type application/json
     """
-    rv = {"number": number, "estPair": _estpair(number)}
+    rv = {"value": number, "prediction": fn(number)}
     return rv
 
 #
@@ -48,8 +51,8 @@ def main():
             sys.exit(-2)
 
     with open(nomfichier, 'rb') as file:
-        global _estpair
-        _estpair = dill.load(file)
+        global fn
+        fn = dill.load(file)
 
     run(host='localhost', port=8080, debug=True)
 

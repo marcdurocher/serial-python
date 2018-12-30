@@ -1,5 +1,8 @@
 """
 Exercice
+
+__author__ = Marc Durocher
+
 """
 import dill
 

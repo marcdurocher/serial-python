@@ -1,5 +1,8 @@
 """
 Simple test
+
+__author__ = Marc Durocher
+
 """
 import dill
 
