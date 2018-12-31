@@ -10,24 +10,29 @@ The function attached to this HTTP endpoint is loaded from a serialized form, fo
 
 The goal is to decouple the creation of the function and its consumation as a "REST API".
 
-This function could be a trained model seralized form a machine learning framework.  
+The function used here is a predictive function, result of a trained model, using sckit learn framework. 
+The algorithm used is a linear regression. The data are production using a predefined linear function.
+The model tries to fit thie function.
 
 ## Example
 
-Service launch
-> python -m modele.endpoint --file estpair.bin
+The initial linear function is the following one:  
+>
+    def f(x):
+       r = x * 250 + 3
+       return r
 
-where estpair.bin is the path to the file containing the serialized function estPair
+Service launch
+> python -m modele.endpoint --file function.bin
+
+where function.bin is the path to the file containing the serialized function estPair
 
 Service call
-> wget -qO - http://localhost:8080/api/13
+> wget -qO - http://localhost:8080/api/3
 
 Result
-> {"number": 13, "estPair": false}
+> {"value": 3, "prediction": 752.9999999999568}
 
-
-Function __estpair__
-> def estpair(n):  return n % 2 == 0
  
  
  ## Docker image
