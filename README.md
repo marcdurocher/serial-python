@@ -2,7 +2,7 @@
 
 ## Experiments around Python functions serialization.
 
-
+### First approach : focusing on preditive function and reuse as a REST API
 __Endpoint.py__ exposes a function as "REST RPC" service.
 (Listening on port 8080 from the localhost currently)
 
@@ -47,6 +47,42 @@ Result
  
  Using the host network (form docker container point of view) you can call the service the same way as previously
  > wget -qO - http://localhost:8080/api/13
+ 
+ 
+ ### Second approach : generate source code into another programming language like Java
+ 
+ Using the m2cgen library, the trained model with scikit-learn is transform in a Java source class.
+ 
+ Operation in two steps:
+ * Train the model, and then serialize the whole model into a file
+ * Read back the file and generate a Java file source
+ 
+ 
+ > python -m modele.generate_ser_model
+
+This generate a file named ml_model.bin into the working directory
+
+Then invoking convert_ser_model_to_java the ml_model.bin is read back and then transformed into a 
+Java class named Modelo, into the java package bzh.marcdurocher.prediction, so into a the directory
+structure ./bzh/marcdurocher/prediction/
+
+The resulting source code is a below
+
+> cat bzh/marcdurocher/prediction/Modelo.java
+ 
+```
+package bzh.marcdurocher.prediction;
+ 
+public class Modelo {
+
+    public static double score(double[] input) {
+       return (2.999999999985448) + ((input[0]) * (249.99999999999997));
+    }
+}
+```
+
+
+ 
  
  _Enjoy..._
  
