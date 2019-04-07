@@ -1,6 +1,15 @@
 # serial-python
 
-## Experiments around Python functions serialization.
+## Experiments around Python functions serialization and machine learning productionalization paths
+
+**Model**
+
+The initial linear function is the following one:  
+>
+    def f(x):
+       r = x * 250 + 3
+       return r
+
 
 ### First approach : focusing on preditive function and reuse as a REST API
 __Endpoint.py__ exposes a function as "REST RPC" service.
@@ -14,14 +23,6 @@ The function used here is a predictive function, result of a trained model, usin
 The algorithm used is a linear regression. The data are production using a predefined linear function.
 The model tries to fit thie function.
 
-## Example
-
-The initial linear function is the following one:  
->
-    def f(x):
-       r = x * 250 + 3
-       return r
-
 Service launch
 > python -m modele.endpoint --file function.bin
 
@@ -32,10 +33,8 @@ Service call
 
 Result
 > {"value": 3, "prediction": 752.9999999999568}
-
  
- 
- ## Docker image
+ #### Docker image
  
  To build the Docker image
  
@@ -80,9 +79,6 @@ public class Modelo {
     }
 }
 ```
-
-
- 
  
  _Enjoy..._
  
